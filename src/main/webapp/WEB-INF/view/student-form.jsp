@@ -10,12 +10,9 @@
     <br>
     Last name : <form:input name="lastName" path="lastName" />
     <br>
-    Country :   <form:select name="country" path="country">
-                    <form:option name="Romania" value="Romania"/>
-                    <form:option name="Italia"  value="Italia"/>
-                    <form:option name="Spania" value="Spania"/>
-
-                </form:select>
+    Country :       <form:select path="country">
+                        <form:options items="${countries}" />
+                    </form:select>
 
     <br>
     <form:button id="submit" value="submit">say hi</form:button>
