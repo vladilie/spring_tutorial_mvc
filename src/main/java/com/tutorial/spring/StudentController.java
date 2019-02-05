@@ -32,7 +32,7 @@ public class StudentController {
         model.addAttribute("student", studentView);
         model.addAttribute("countries", studentView.getCountries());
         model.addAttribute("languages", studentView.getLanguages());
-
+model.addAttribute("operatingSystems", studentView.getOperatingSystems());
         return viewName;
     }
 

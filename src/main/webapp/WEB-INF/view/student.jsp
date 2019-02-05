@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 
 <body>
@@ -10,6 +11,10 @@ Origin : ${student.countryName}
 <br>
 Favourite Language: ${student.favouriteLanguageName}
 <br>
+<br>
+Operating Systems: <c:forEach var="temp" items="${student.operatingSystemNames}">
+    <c:out value = "${temp}"/><p>
+</c:forEach>
 
 </body>
 

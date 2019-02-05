@@ -16,6 +16,9 @@ public class StudentView {
     @Autowired
     private Properties languages;
 
+    @Autowired
+    private Properties operatingSystems;
+
     private Student student;
 
     public StudentView() {
@@ -65,4 +68,22 @@ public class StudentView {
     public Properties getLanguages() {
         return languages;
     }
+
+    public Properties getOperatingSystems() {
+        return operatingSystems;
+    }
+
+    public String[] getOperatingSystemList() {
+        return student.getOperatingSystemList();
+    }
+
+    public String[] getOperatingSystemNames() {
+        String[] names = new String[getOperatingSystemList().length];
+        int i = 0;
+        for(String system: getOperatingSystemList()) {
+            names[i++] = getOperatingSystems().getProperty(system);
+        }
+        return names;
+    }
+
 }

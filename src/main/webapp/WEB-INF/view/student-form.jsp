@@ -18,7 +18,9 @@
     Favourite Language : <form:radiobuttons path="favouriteLanguage" items="${languages}" />
 
     <br>
+    Operating Systems : <form:checkboxes path="operatingSystemList" items="${operatingSystems}" />
 
+    <br>
     <form:button id="submit" value="submit">say hi</form:button>
 </form:form>
 </body>

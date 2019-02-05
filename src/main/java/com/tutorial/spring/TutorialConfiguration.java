@@ -17,18 +17,18 @@ public class TutorialConfiguration {
 
     @Bean
     public Properties countries() throws IOException {
-        Properties countries = new Properties();
-        countries.load(new FileUrlResource("src/main/resources/countries.properties").getInputStream());
-        return countries;
+        return readPropertiesFile("src/main/resources/countries.properties");
     }
 
     @Bean
     public Properties languages() throws IOException {
-        Properties languages = new Properties();
-        languages.load(new FileUrlResource("src/main/resources/languages.properties").getInputStream());
-        return languages;
+        return readPropertiesFile("src/main/resources/languages.properties");
     }
 
+    @Bean
+    public Properties operatingSystems() throws IOException {
+        return readPropertiesFile("src/main/resources/operating-systems.properties");
+    }
 
     @Bean
     public StudentView studentView() {
@@ -47,5 +47,10 @@ public class TutorialConfiguration {
         return viewResolver;
     }
 
+    private Properties readPropertiesFile(String location) throws IOException {
+        Properties countries = new Properties();
+        countries.load(new FileUrlResource(location).getInputStream());
+        return countries;
+    }
 
 }
