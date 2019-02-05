@@ -13,6 +13,9 @@ public class StudentView {
     @Autowired
     private Properties countries;
 
+    @Autowired
+    private Properties languages;
+
     private Student student;
 
     public StudentView() {
@@ -43,11 +46,23 @@ public class StudentView {
         return student.getCountry();
     }
 
+    public String getFavouriteLanguage() {
+        return student.getFavouriteLanguage();
+    }
+
     public String getCountryName() {
-        return countries.getProperty(student.getCountry());
+        return countries.getProperty(getCountry());
+    }
+
+    public String getFavouriteLanguageName() {
+        return languages.getProperty(getFavouriteLanguage());
     }
 
     public Properties getCountries(){
         return countries;
+    }
+
+    public Properties getLanguages() {
+        return languages;
     }
 }

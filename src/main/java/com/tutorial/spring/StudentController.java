@@ -31,6 +31,8 @@ public class StudentController {
         studentView.setStudent(student);
         model.addAttribute("student", studentView);
         model.addAttribute("countries", studentView.getCountries());
+        model.addAttribute("languages", studentView.getLanguages());
+
         return viewName;
     }
 

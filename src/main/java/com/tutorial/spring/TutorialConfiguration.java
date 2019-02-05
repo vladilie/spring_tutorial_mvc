@@ -23,6 +23,14 @@ public class TutorialConfiguration {
     }
 
     @Bean
+    public Properties languages() throws IOException {
+        Properties languages = new Properties();
+        languages.load(new FileUrlResource("src/main/resources/languages.properties").getInputStream());
+        return languages;
+    }
+
+
+    @Bean
     public StudentView studentView() {
         return new StudentView();
     }
