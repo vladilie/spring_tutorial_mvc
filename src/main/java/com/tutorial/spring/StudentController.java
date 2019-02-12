@@ -14,25 +14,34 @@ import java.util.Properties;
 @Controller
 @RequestMapping("student")
 public class StudentController {
+
     @Autowired
-    private StudentView studentView;
+    private Properties countries;
+
+    @Autowired
+    private Properties languages;
+
+    @Autowired
+    private Properties operatingSystems;
 
     @RequestMapping("showForm")
-    public String showForm(Model model) {
-        return returnToView("student-form", model, new Student());
+    public String showForm(@ModelAttribute("student") Student student, Model model) {
+        return returnToView("student-form", model, student);
     }
 
     @RequestMapping("processForm")
     public String processForm(@ModelAttribute("student") Student student, Model model) {
+        student.setCountries(countries);
+        student.setLanguages(languages);
+        student.setOperatingSystems(operatingSystems);
         return returnToView("student", model, student);
     }
 
     private String returnToView(String viewName, Model model, Student student) {
-        studentView.setStudent(student);
-        model.addAttribute("student", studentView);
-        model.addAttribute("countries", studentView.getCountries());
-        model.addAttribute("languages", studentView.getLanguages());
-model.addAttribute("operatingSystems", studentView.getOperatingSystems());
+        model.addAttribute("student", student);
+        model.addAttribute("countries", countries);
+        model.addAttribute("languages", languages);
+        model.addAttribute("operatingSystems", operatingSystems);
         return viewName;
     }
 

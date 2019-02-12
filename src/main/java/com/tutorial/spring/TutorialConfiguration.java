@@ -30,11 +30,6 @@ public class TutorialConfiguration {
         return readPropertiesFile("src/main/resources/operating-systems.properties");
     }
 
-    @Bean
-    public StudentView studentView() {
-        return new StudentView();
-    }
-
     // define a bean for ViewResolver
     @Bean
     public ViewResolver viewResolver() {
